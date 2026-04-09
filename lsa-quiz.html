@@ -237,6 +237,14 @@
     <label>Quiz Title <span style="font-size:10px;text-transform:none;letter-spacing:0;">(optional — overrides filename in the quiz header)</span></label>
     <input type="text" id="quizTitle" placeholder="e.g. Flying Order Book Quiz">
 
+    <label>Timer</label>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
+      <input type="checkbox" id="hasTimer" style="accent-color:var(--amber);width:auto;cursor:pointer;" checked>
+      <span style="font-size:13px;color:var(--grey);">Enable timer</span>
+      <input type="number" id="timerMins" placeholder="15" min="1" max="180" style="width:80px;" value="15">
+      <span style="font-size:13px;color:var(--grey);">minutes</span>
+    </div>
+
     <label>Pass Mark</label>
     <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
       <input type="checkbox" id="hasPassMark" style="accent-color:var(--amber);width:auto;cursor:pointer;">
@@ -320,7 +328,7 @@
 <div class="container hidden" id="quizView">
   <div class="quiz-header">
     <div class="timer-display" id="timerDisplay">15:00</div>
-    <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar"></div></div>
+    <div class="timer-bar-wrap" id="timerBarWrap"><div class="timer-bar" id="timerBar"></div></div>
     <div class="quiz-title" id="activeTitle"></div>
     <div class="quiz-meta" id="activeMeta"></div>
   </div>
@@ -367,6 +375,9 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('hasPassMark').addEventListener('change', e => {
       document.getElementById('passMark').disabled = !e.target.checked;
     });
+    document.getElementById('hasTimer').addEventListener('change', e => {
+      document.getElementById('timerMins').disabled = !e.target.checked;
+    });
   }
 });
 
@@ -383,6 +394,8 @@ function generateLink() {
   const title    = document.getElementById('quizTitle').value.trim();
   const gasUrl   = document.getElementById('gasUrl').value.trim();
   const email    = document.getElementById('notifyEmail').value.trim();
+  const hasTimer  = document.getElementById('hasTimer').checked;
+  const timerMins = hasTimer ? (parseInt(document.getElementById('timerMins').value) || 15) : null;
   const hasPass  = document.getElementById('hasPassMark').checked;
   const passMark = hasPass ? parseInt(document.getElementById('passMark').value) : null;
   const errEl    = document.getElementById('buildError');
@@ -392,10 +405,11 @@ function generateLink() {
   errEl.classList.add('hidden');
 
   const config = { f: filename };
-  if (title)    config.t = title;
-  if (passMark) config.p = passMark;
-  if (email)    config.e = email;
-  if (gasUrl)   config.g = gasUrl;
+  if (title)      config.t = title;
+  if (passMark)   config.p = passMark;
+  if (email)      config.e = email;
+  if (gasUrl)     config.g = gasUrl;
+  if (timerMins)  config.m = timerMins;
 
   const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(config))));
   const base = window.location.href.split('?')[0];
@@ -469,12 +483,14 @@ async function loadQuiz(encoded) {
     passMark:    config.p || null,
     gasUrl:      config.g || null,
     notifyEmail: config.e || null,
+    timerMins:   config.m || null,
     questions
   };
 
   show('nameView');
   document.getElementById('takerQuizTitle').textContent = quizData.title;
-  const meta = [`${questions.length} questions`, '15 minutes'];
+  const meta = [`${questions.length} questions`];
+  if (quizData.timerMins) meta.push(`${quizData.timerMins} minutes`);
   if (quizData.passMark) meta.push(`Pass mark: ${quizData.passMark}%`);
   document.getElementById('takerQuizMeta').textContent = meta.join(' · ');
 }
@@ -495,7 +511,14 @@ function startQuiz() {
   document.getElementById('activeTitle').textContent = quizData.title;
   document.getElementById('activeMeta').textContent = `${quizData.questions.length} questions · Good luck, ${name}!`;
   renderQuestions();
-  startTimer();
+  if (quizData.timerMins) {
+    document.getElementById('timerDisplay').classList.remove('hidden');
+    document.getElementById('timerBarWrap').classList.remove('hidden');
+    startTimer();
+  } else {
+    document.getElementById('timerDisplay').classList.add('hidden');
+    document.getElementById('timerBarWrap').classList.add('hidden');
+  }
 }
 
 function renderQuestions() {
@@ -539,7 +562,7 @@ function selectOption(qi, oi) {
 
 // ── TIMER ─────────────────────────────
 function startTimer() {
-  timeLeft = QUIZ_TIME_SECONDS;
+  timeLeft = (quizData.timerMins || 15) * 60;
   updateTimerDisplay();
   timerInterval = setInterval(() => {
     timeLeft--;
@@ -549,13 +572,14 @@ function startTimer() {
 }
 
 function updateTimerDisplay() {
+  const total = (quizData.timerMins || 15) * 60;
   const m = Math.floor(timeLeft/60), s = timeLeft%60;
   const warn = timeLeft <= 120;
   const disp = document.getElementById('timerDisplay');
   const bar  = document.getElementById('timerBar');
   disp.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}${warn?' ⚠':''}`;
   disp.classList.toggle('warning', warn);
-  bar.style.width = ((timeLeft/QUIZ_TIME_SECONDS)*100)+'%';
+  bar.style.width = ((timeLeft/total)*100)+'%';
   bar.classList.toggle('warning', warn);
 }
 
