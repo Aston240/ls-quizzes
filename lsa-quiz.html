@@ -253,12 +253,6 @@
       <span style="font-size:13px;color:var(--grey);">%</span>
     </div>
 
-    <label>Your Notification Email</label>
-    <input type="email" id="notifyEmail" placeholder="tom@limasierra.org">
-
-    <label>Google Apps Script URL</label>
-    <input type="text" id="gasUrl" placeholder="https://script.google.com/macros/s/.../exec">
-
     <div id="buildError" class="alert alert-error hidden"></div>
 
     <div class="flex-row-end mt2">
@@ -358,12 +352,13 @@
 
 <script>
 const BASE_URL = 'https://aston240.github.io/ls-quizzes';
-const QUIZ_TIME_SECONDS = 15 * 60;
+const GAS_URL  = 'https://script.google.com/macros/s/AKfycbw2IsnpW57lUIQKhFraVORciGsFThBXvAjWYEiaNF6PSQGr-N5ewGjRv4vfq_SFH3qT3uA/exec';
+const NOTIFY_EMAIL = 'tom@limasierra.org';
 
 let quizData = null;
 let answers = {};
 let timerInterval = null;
-let timeLeft = QUIZ_TIME_SECONDS;
+let timeLeft = 0;
 
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
@@ -392,8 +387,8 @@ function generateLink() {
   const filename = document.getElementById('quizFilename').value.trim()
     .replace(/\.json$/i,'').replace(/[^a-zA-Z0-9_-]/g,'');
   const title    = document.getElementById('quizTitle').value.trim();
-  const gasUrl   = document.getElementById('gasUrl').value.trim();
-  const email    = document.getElementById('notifyEmail').value.trim();
+  const gasUrl   = GAS_URL;
+  const email    = NOTIFY_EMAIL;
   const hasTimer  = document.getElementById('hasTimer').checked;
   const timerMins = hasTimer ? (parseInt(document.getElementById('timerMins').value) || 15) : null;
   const hasPass  = document.getElementById('hasPassMark').checked;
@@ -401,7 +396,6 @@ function generateLink() {
   const errEl    = document.getElementById('buildError');
 
   if (!filename) { errEl.textContent = 'Please enter a quiz filename.'; errEl.classList.remove('hidden'); return; }
-  if (!gasUrl)   { errEl.textContent = 'Please enter your Google Apps Script URL.'; errEl.classList.remove('hidden'); return; }
   errEl.classList.add('hidden');
 
   const config = { f: filename };
