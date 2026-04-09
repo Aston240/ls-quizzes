@@ -1,0 +1,803 @@
+
+{
+  "quiz": [
+    {
+      "question": "What is the standard fuel capacity of the Piper Cherokee PA-28-140 when filled to the bottom of the filler neck indicator?",
+      "answerOptions": [
+        {
+          "text": "$36$ gallons",
+          "isCorrect": true,
+          "rationale": "Filling to the indicator at the bottom of the filler neck establishes the standard fuel load for this aircraft model."
+        },
+        {
+          "text": "$50$ gallons",
+          "isCorrect": false,
+          "rationale": "This figure represents the total reserve fuel capacity rather than the standard quantity indicated by the filler neck."
+        },
+        {
+          "text": "$25$ gallons",
+          "isCorrect": false,
+          "rationale": "This is the individual capacity of a single fuel tank, not the total standard quantity for the entire aircraft."
+        },
+        {
+          "text": "$42$ gallons",
+          "isCorrect": false,
+          "rationale": "While plausible for similar aircraft, this value is not supported by the specific specification features of the PA-28-140."
+        }
+      ],
+      "hint": "Refer to the standard quantity specified for the fuel system in Section II."
+    },
+    {
+      "question": "Which airspeed provides the best rate of climb ($V_y$) for the PA-28-140 at gross weight?",
+      "answerOptions": [
+        {
+          "text": "$74$ mph",
+          "isCorrect": false,
+          "rationale": "This speed is used for the best angle of climb, which is intended for clearing obstacles in a short distance rather than gaining altitude quickly over time."
+        },
+        {
+          "text": "$85$ mph",
+          "isCorrect": true,
+          "rationale": "This specific speed is designated to achieve the maximum gain in altitude over a given period of time at sea level."
+        },
+        {
+          "text": "$100$ mph",
+          "isCorrect": false,
+          "rationale": "This speed is recommended for enroute climbs to improve visibility and cooling, but it does not provide the maximum rate of vertical ascent."
+        },
+        {
+          "text": "$115$ mph",
+          "isCorrect": false,
+          "rationale": "This speed is the maximum at which flaps can be extended and is too high for an efficient climb."
+        }
+      ],
+      "hint": "This speed is higher than the best angle of climb but lower than the enroute climb speed."
+    },
+    {
+      "question": "What is the minimum octane fuel required for the Lycoming O-320-E2A engine?",
+      "answerOptions": [
+        {
+          "text": "$100/130$ (Green)",
+          "isCorrect": false,
+          "rationale": "While this is an approved higher grade, it is not the minimum grade required for the engine's 7:1 compression ratio."
+        },
+        {
+          "text": "$100LL$ (Blue)",
+          "isCorrect": false,
+          "rationale": "This is the recommended alternative when the primary minimum grade is unavailable, but it is not the actual minimum design requirement."
+        },
+        {
+          "text": "$80/87$ (Red)",
+          "isCorrect": true,
+          "rationale": "The engine is designed for a minimum of $80/87$ octane, which is identified by its distinct red color."
+        },
+        {
+          "text": "$115/145$ (Purple)",
+          "isCorrect": false,
+          "rationale": "This high-grade military fuel exceeds the requirements for this low-compression general aviation engine."
+        }
+      ],
+      "hint": "Look for the fuel grade associated with the color red."
+    },
+    {
+      "question": "During the pre-takeoff ground check, what is the maximum allowable differential drop between magnetos at $2000$ RPM?",
+      "answerOptions": [
+        {
+          "text": "$175$ RPM",
+          "isCorrect": false,
+          "rationale": "This is the maximum total drop allowed for a single magneto, not the difference between the two."
+        },
+        {
+          "text": "$50$ RPM",
+          "isCorrect": true,
+          "rationale": "The difference in RPM drop between the left and right magnetos must stay within this limit to ensure balanced ignition performance."
+        },
+        {
+          "text": "$100$ RPM",
+          "isCorrect": false,
+          "rationale": "A difference of this magnitude would indicate a significant disparity in the health of the two independent ignition systems."
+        },
+        {
+          "text": "$25$ RPM",
+          "isCorrect": false,
+          "rationale": "While a lower drop is better, the manual allows for a slightly larger margin before the system is considered out of tolerance."
+        }
+      ],
+      "hint": "This value represents the allowed variation between the two ignition sources."
+    },
+    {
+      "question": "At what engine speed (RPM) should the magneto check be performed?",
+      "answerOptions": [
+        {
+          "text": "$800$ RPM",
+          "isCorrect": false,
+          "rationale": "This is the idle warm-up speed and is insufficient for checking the ignition system under load."
+        },
+        {
+          "text": "$1200$ RPM",
+          "isCorrect": false,
+          "rationale": "This speed is used for warming up the engine or clearing it after using alternate fuels, but not for the formal ground check."
+        },
+        {
+          "text": "$2000$ RPM",
+          "isCorrect": true,
+          "rationale": "This specific power setting provides the necessary engine load to accurately measure magneto performance and vacuum system levels."
+        },
+        {
+          "text": "$2450$ RPM",
+          "isCorrect": false,
+          "rationale": "This is the rated speed for full power at lower weights, which is too high for a safe static ground check."
+        }
+      ],
+      "hint": "Check the Ground Check instructions in Section III."
+    },
+    {
+      "question": "What is the proper tire pressure for both the main and nose wheels of the Cherokee 140?",
+      "answerOptions": [
+        {
+          "text": "$30$ psi",
+          "isCorrect": false,
+          "rationale": "This pressure is too high and could lead to excessive tire wear or a harsh ride on the landing gear."
+        },
+        {
+          "text": "$24$ psi",
+          "isCorrect": true,
+          "rationale": "Maintaining $24$ pounds of pressure in all three tires ensures proper shock absorption and even tread wear."
+        },
+        {
+          "text": "$18$ psi",
+          "isCorrect": false,
+          "rationale": "Under-inflation can cause the tires to overheat or slip on the wheel rim during braking."
+        },
+        {
+          "text": "$32$ psi",
+          "isCorrect": false,
+          "rationale": "This value exceeds the manufacturer's specification for all landing gear tires on this aircraft."
+        }
+      ],
+      "hint": "All three landing gear tires use the same specified pressure."
+    },
+    {
+      "question": "According to the handbook, when should the electric fuel pump be turned 'ON'?",
+      "answerOptions": [
+        {
+          "text": "For all take-offs and landings",
+          "isCorrect": true,
+          "rationale": "The electric pump serves as a safety backup to the engine-driven pump during the most critical phases of flight."
+        },
+        {
+          "text": "Only during engine start",
+          "isCorrect": false,
+          "rationale": "While used for starting, it must also be operational during take-off and landing to ensure fuel pressure consistency."
+        },
+        {
+          "text": "Only when the main tank is empty",
+          "isCorrect": false,
+          "rationale": "The pump is a system redundancy and should be used regardless of the fuel quantity in the tanks during specific flight phases."
+        },
+        {
+          "text": "At altitudes above $10,000$ feet",
+          "isCorrect": false,
+          "rationale": "The manual specifies pump usage based on flight phase (take-off and landing) rather than altitude."
+        }
+      ],
+      "hint": "This pump is used as a safety precaution during high-workload phases near the ground."
+    },
+    {
+      "question": "What is the maximum oil capacity of the Lycoming O-320-E2A engine?",
+      "answerOptions": [
+        {
+          "text": "$2$ quarts",
+          "isCorrect": false,
+          "rationale": "This is the minimum safe quantity required for operation, not the maximum capacity of the sump."
+        },
+        {
+          "text": "$6$ quarts",
+          "isCorrect": false,
+          "rationale": "This is a common operating level, but it does not represent the full capacity defined in the specifications."
+        },
+        {
+          "text": "$8$ quarts",
+          "isCorrect": true,
+          "rationale": "The oil sump is designed to hold a maximum of $8$ quarts for engine lubrication and cooling."
+        },
+        {
+          "text": "$10$ quarts",
+          "isCorrect": false,
+          "rationale": "This exceeds the design capacity of the engine's oil system as stated in the Power Plant section."
+        }
+      ],
+      "hint": "Refer to the specification features under Power Plant or the preflight check list."
+    },
+    {
+      "question": "The visual stall warning light is designed to activate at what speed relative to the actual stall?",
+      "answerOptions": [
+        {
+          "text": "At the exact moment of the stall",
+          "isCorrect": false,
+          "rationale": "A warning that occurs exactly at the stall provides no time for the pilot to take corrective action."
+        },
+        {
+          "text": "$5$ to $10$ mph above stall speed",
+          "isCorrect": true,
+          "rationale": "This margin provides the pilot with a timely alert to increase airspeed or reduce the angle of attack before the aircraft actually stalls."
+        },
+        {
+          "text": "$15$ to $20$ mph above stall speed",
+          "isCorrect": false,
+          "rationale": "This would result in premature warnings during normal slow-flight approaches and landings."
+        },
+        {
+          "text": "Only when flaps are fully extended",
+          "isCorrect": false,
+          "rationale": "The stall warning system functions independently of flap position to provide safety throughout the flight envelope."
+        }
+      ],
+      "hint": "The system is designed to provide a small buffer of airspeed to allow for pilot reaction."
+    },
+    {
+      "question": "What is the purpose of the anti-servo tab on the Cherokee's stabilator?",
+      "answerOptions": [
+        {
+          "text": "To increase the maximum speed of the aircraft",
+          "isCorrect": false,
+          "rationale": "The tab is a control surface enhancement and does not contribute to increasing the aircraft's top speed."
+        },
+        {
+          "text": "To provide longitudinal trim and extra stability",
+          "isCorrect": true,
+          "rationale": "The tab moves in the same direction as the stabilator, providing both feel to the pilot and a means to trim the aircraft for hands-off flight."
+        },
+        {
+          "text": "To act as a primary air brake",
+          "isCorrect": false,
+          "rationale": "Longitudinal control and trimming are its primary functions; it is not designed to create significant drag for slowing down."
+        },
+        {
+          "text": "To decrease the turn radius",
+          "isCorrect": false,
+          "rationale": "Turning radius is primarily affected by bank angle and airspeed, not the pitch trim system."
+        }
+      ],
+      "hint": "Think about the role of the horizontal tail in flight stability and control 'feel'."
+    },
+    {
+      "question": "Where is the battery located in the Piper Cherokee 140?",
+      "answerOptions": [
+        {
+          "text": "Behind the engine firewall",
+          "isCorrect": false,
+          "rationale": "The firewall contains the brake reservoir and fuel strainer, but the battery is located further aft for weight and balance reasons."
+        },
+        {
+          "text": "Under the pilot's seat",
+          "isCorrect": false,
+          "rationale": "The space under the seats is occupied by the spar carry-through and control mechanisms."
+        },
+        {
+          "text": "Beneath the baggage compartment floor",
+          "isCorrect": true,
+          "rationale": "The battery is housed in a dedicated, vented container under the baggage floor to keep it protected and accessible for maintenance."
+        },
+        {
+          "text": "In the tail cone near the stabilator",
+          "isCorrect": false,
+          "rationale": "While the serial number plate is near the stabilator, placing a heavy battery there would adversely affect the center of gravity."
+        }
+      ],
+      "hint": "Access for inspection is obtained by raising a hinged floor panel in the storage area."
+    },
+    {
+      "question": "What is the recommended procedure for starting a cold engine (below $40^{\\circ}F$)?",
+      "answerOptions": [
+        {
+          "text": "Open the throttle fully and engage the starter",
+          "isCorrect": false,
+          "rationale": "Opening the throttle fully could lead to a dangerous overspeed immediately after the engine starts."
+        },
+        {
+          "text": "Prime the engine with $1$ to $3$ full strokes of the priming pump",
+          "isCorrect": true,
+          "rationale": "In cold temperatures, extra fuel is needed in the cylinders to facilitate combustion because fuel does not vaporize as easily."
+        },
+        {
+          "text": "Use the electric fuel pump for $5$ minutes before starting",
+          "isCorrect": false,
+          "rationale": "Running the pump for an extended period without starting could flood the system or drain the battery."
+        },
+        {
+          "text": "Avoid using the primer and only use throttle pumps",
+          "isCorrect": false,
+          "rationale": "Throttle pumping is only recommended for temperatures above $40^{\\circ}F$; colder weather requires the more direct fuel delivery of the primer."
+        }
+      ],
+      "hint": "Cold weather requires a manual injection of fuel into the engine intake."
+    },
+    {
+      "question": "In the event of a suspected engine overprime, what is the correct corrective action?",
+      "answerOptions": [
+        {
+          "text": "Continue priming until the engine fires",
+          "isCorrect": false,
+          "rationale": "This would worsen the condition by adding even more excess fuel to the cylinders."
+        },
+        {
+          "text": "Open the throttle fully and rotate the engine with the starter",
+          "isCorrect": true,
+          "rationale": "Opening the throttle allows maximum air to enter the cylinders, helping to clear out the excess fuel while the engine is turned over."
+        },
+        {
+          "text": "Wait for $30$ minutes for the fuel to evaporate",
+          "isCorrect": false,
+          "rationale": "While waiting might eventually work, the manual provides a specific mechanical procedure to clear the engine immediately."
+        },
+        {
+          "text": "Turn on the carburetor heat during the next start attempt",
+          "isCorrect": false,
+          "rationale": "Carburetor heat is not used for starting and would not help clear excess fuel from the cylinders."
+        }
+      ],
+      "hint": "The goal is to get as much air as possible through the engine to clear out excess fuel."
+    },
+    {
+      "question": "What is the maximum speed at which the flaps can be extended ($V_{fe}$)?",
+      "answerOptions": [
+        {
+          "text": "$85$ mph",
+          "isCorrect": false,
+          "rationale": "This is the climb and approach speed, well below the structural limit for flap extension."
+        },
+        {
+          "text": "$100$ mph",
+          "isCorrect": false,
+          "rationale": "This is the enroute climb speed, but the aircraft is designed to handle flap loads at slightly higher speeds."
+        },
+        {
+          "text": "$115$ mph",
+          "isCorrect": true,
+          "rationale": "Extension above this speed could cause structural damage to the flaps or the actuating linkage."
+        },
+        {
+          "text": "$141$ mph",
+          "isCorrect": false,
+          "rationale": "This is the top speed of the aircraft, which is far beyond the safe operating range for extended flaps."
+        }
+      ],
+      "hint": "Check the Approach and Landing section in Section III."
+    },
+    {
+      "question": "Which document governs if there is an inconsistency with the Owner's Handbook?",
+      "answerOptions": [
+        {
+          "text": "The Lycoming Engine Manual",
+          "isCorrect": false,
+          "rationale": "The engine manual only covers the powerplant, not the entire aircraft's operation."
+        },
+        {
+          "text": "The Airplane Flight Manual (AFM) approved by the F.A.A.",
+          "isCorrect": true,
+          "rationale": "The AFM is the legally binding document for aircraft operation and always takes precedence over the handbook."
+        },
+        {
+          "text": "The Piper Dealer Service Guide",
+          "isCorrect": false,
+          "rationale": "This guide is for maintenance reference and does not supersede operational flight manuals."
+        },
+        {
+          "text": "The Advisory Circulars",
+          "isCorrect": false,
+          "rationale": "Advisory Circulars provide guidance but are not specific to the legal limitations of a particular aircraft's flight manual."
+        }
+      ],
+      "hint": "This is mentioned in the 'Notice' at the very beginning of the handbook."
+    },
+    {
+      "question": "What is the standard wing span of the Cherokee 140?",
+      "answerOptions": [
+        {
+          "text": "$23.3$ feet",
+          "isCorrect": false,
+          "rationale": "This figure actually represents the length of the aircraft from nose to tail."
+        },
+        {
+          "text": "$30$ feet",
+          "isCorrect": true,
+          "rationale": "The aircraft is designed with a constant $30$-foot wing span across both weight categories."
+        },
+        {
+          "text": "$10$ feet",
+          "isCorrect": false,
+          "rationale": "This is the wheel tread (distance between the main wheels), not the wingspan."
+        },
+        {
+          "text": "$7.3$ feet",
+          "isCorrect": false,
+          "rationale": "This represents the height of the aircraft to the top of the tail."
+        }
+      ],
+      "hint": "Look in the Dimensions table in Section I."
+    },
+    {
+      "question": "When checking the fuel system during preflight, what must be 'ON' to properly drain the lines through the gascolator?",
+      "answerOptions": [
+        {
+          "text": "The Master Switch and Electric Fuel Pump",
+          "isCorrect": true,
+          "rationale": "The electric pump is required to push fuel from the selected tank through the lines to the strainer for an effective check."
+        },
+        {
+          "text": "The Ignition Switch",
+          "isCorrect": false,
+          "rationale": "The ignition should always be OFF during preflight for safety to prevent accidental engine starts."
+        },
+        {
+          "text": "The Carburetor Heat",
+          "isCorrect": false,
+          "rationale": "Carburetor heat is a mechanical ducting system and has no role in the fuel draining process."
+        },
+        {
+          "text": "The Cabin Heat",
+          "isCorrect": false,
+          "rationale": "Cabin heating is unrelated to the fuel system's preflight drainage procedures."
+        }
+      ],
+      "hint": "One electrical component is needed to pressurize the fuel system for the drain check."
+    },
+    {
+      "question": "What is the recommended interval for changing the engine oil under normal conditions?",
+      "answerOptions": [
+        {
+          "text": "Every $25$ hours",
+          "isCorrect": false,
+          "rationale": "While conservative, the manual standard for an engine without a full-flow filter is higher than this."
+        },
+        {
+          "text": "Every $50$ hours",
+          "isCorrect": true,
+          "rationale": "This is the standard recommended frequency to ensure engine longevity and remove contaminants."
+        },
+        {
+          "text": "Every $100$ hours",
+          "isCorrect": false,
+          "rationale": "This interval is only acceptable if the engine is equipped with a full-flow cartridge type oil filter."
+        },
+        {
+          "text": "Once per year regardless of hours",
+          "isCorrect": false,
+          "rationale": "Maintenance is primarily based on operating hours rather than a simple calendar duration in this handbook."
+        }
+      ],
+      "hint": "Check the Oil Requirements in Section V."
+    },
+    {
+      "question": "Which flight control surface is used as a step for cabin entry and must be fully retracted to support weight?",
+      "answerOptions": [
+        {
+          "text": "The Aileron",
+          "isCorrect": false,
+          "rationale": "Ailerons are located further out on the wing and are not structurally designed or positioned to be used as a step."
+        },
+        {
+          "text": "The Flap",
+          "isCorrect": true,
+          "rationale": "The flap incorporates a lock in the up position specifically to allow it to function as a boarding step on the right side."
+        },
+        {
+          "text": "The Stabilator",
+          "isCorrect": false,
+          "rationale": "The horizontal tail is located at the rear and is not part of the cabin entry path."
+        },
+        {
+          "text": "The Rudder",
+          "isCorrect": false,
+          "rationale": "The rudder is a vertical surface and cannot support the weight of a person entering the cabin."
+        }
+      ],
+      "hint": "This surface has three extended positions but must be 'UP' for stepping."
+    },
+    {
+      "question": "What is the maximum baggage capacity for a Cherokee 140 licensed at a gross weight of $2150$ lbs?",
+      "answerOptions": [
+        {
+          "text": "$100$ lbs",
+          "isCorrect": false,
+          "rationale": "This is the limit for the lower $1950$ lb gross weight category."
+        },
+        {
+          "text": "$200$ lbs",
+          "isCorrect": true,
+          "rationale": "The higher gross weight model allows for double the baggage weight of the original version, provided other seating limits aren't exceeded."
+        },
+        {
+          "text": "$340$ lbs",
+          "isCorrect": false,
+          "rationale": "This higher limit only applies if the specific family seat and safety belts are installed."
+        },
+        {
+          "text": "$50$ lbs",
+          "isCorrect": false,
+          "rationale": "This is below the allowable limit for any version of the Cherokee 140."
+        }
+      ],
+      "hint": "Look for the asterisk notation in the Baggage specifications in Section I."
+    },
+    {
+      "question": "When stopping the engine, why should the mixture be pulled to 'Idle Cut-Off' rather than just turning off the magnetos?",
+      "answerOptions": [
+        {
+          "text": "To prevent the battery from draining",
+          "isCorrect": false,
+          "rationale": "The battery is controlled by the master switch, not the engine's fuel mixture."
+        },
+        {
+          "text": "To ensure no fuel remains in the cylinders to cause 'after-firing'",
+          "isCorrect": true,
+          "rationale": "Cutting the fuel at the source ensures the engine stops completely and prevents unintended ignition of residual vapors."
+        },
+        {
+          "text": "To lubricate the cylinders for the next start",
+          "isCorrect": false,
+          "rationale": "Cutting the fuel does not provide lubrication; lubrication comes from the oil system which stops when the engine stops."
+        },
+        {
+          "text": "To clear the radio of static interference",
+          "isCorrect": false,
+          "rationale": "Engine shutdown procedures are for the powerplant's safety and do not affect radio static."
+        }
+      ],
+      "hint": "Think about how the engine is deprived of its 'food' to stop its operation."
+    },
+    {
+      "question": "What is the normal extension of the main landing gear oleo struts under static load?",
+      "answerOptions": [
+        {
+          "text": "$3.25$ inches",
+          "isCorrect": false,
+          "rationale": "This is the specified extension for the nose gear, which is smaller than the main gear struts."
+        },
+        {
+          "text": "$4.50$ inches",
+          "isCorrect": true,
+          "rationale": "The main gear requires this specific amount of exposed piston to provide adequate shock absorption."
+        },
+        {
+          "text": "$6.00$ inches",
+          "isCorrect": false,
+          "rationale": "This extension would indicate an over-inflated strut, resulting in a very stiff landing gear."
+        },
+        {
+          "text": "$2.00$ inches",
+          "isCorrect": false,
+          "rationale": "This would indicate a low-pressure or leaking strut that needs service."
+        }
+      ],
+      "hint": "The main gear extension is more than an inch longer than the nose gear extension."
+    },
+    {
+      "question": "In the Piper 'Full Time Power' electrical system, what does the ammeter indicate?",
+      "answerOptions": [
+        {
+          "text": "The total voltage of the battery",
+          "isCorrect": false,
+          "rationale": "Voltage is measured by a voltmeter; an ammeter specifically measures the flow of current in amperes."
+        },
+        {
+          "text": "The load in amperes placed on the system",
+          "isCorrect": true,
+          "rationale": "Unlike older systems that only show battery discharge, this system shows the actual current being used by the aircraft's equipment."
+        },
+        {
+          "text": "The remaining life of the alternator",
+          "isCorrect": false,
+          "rationale": "The ammeter shows current flow, but it cannot predict the mechanical or electrical lifespan of the alternator."
+        },
+        {
+          "text": "The temperature of the electrical wires",
+          "isCorrect": false,
+          "rationale": "There is no gauge in the standard Cherokee 140 for monitoring electrical wiring temperature."
+        }
+      ],
+      "hint": "Think about what 'load' means in the context of electrical current."
+    },
+    {
+      "question": "What should be done if oil pressure is not indicated within $30$ seconds of starting the engine?",
+      "answerOptions": [
+        {
+          "text": "Increase the RPM to $2000$ to prime the pump",
+          "isCorrect": false,
+          "rationale": "Increasing RPM without oil pressure could cause catastrophic engine damage due to lack of lubrication."
+        },
+        {
+          "text": "Stop the engine and determine the trouble",
+          "isCorrect": true,
+          "rationale": "A lack of oil pressure indication is a critical warning that the engine is not being lubricated, requiring an immediate shutdown."
+        },
+        {
+          "text": "Wait for another minute for the oil to warm up",
+          "isCorrect": false,
+          "rationale": "The $30$-second window is the maximum safe time allowed; waiting longer risks permanent engine failure."
+        },
+        {
+          "text": "Tap the gauge to see if it is stuck",
+          "isCorrect": false,
+          "rationale": "While a gauge might stick, the safe operational procedure is to assume the engine has no pressure until proven otherwise."
+        }
+      ],
+      "hint": "This is a critical safety step to prevent engine damage."
+    },
+    {
+      "question": "Which control should be avoided during prolonged ground operations to prevent intake of unfiltered air?",
+      "answerOptions": [
+        {
+          "text": "Throttle",
+          "isCorrect": false,
+          "rationale": "The throttle must be used for taxiing and cannot be avoided."
+        },
+        {
+          "text": "Mixture",
+          "isCorrect": false,
+          "rationale": "The mixture is essential for engine operation and does not affect air filtration."
+        },
+        {
+          "text": "Carburetor Heat",
+          "isCorrect": true,
+          "rationale": "When carburetor heat is 'ON', air bypasses the filter, which can allow dust and grit into the engine, especially on unimproved fields."
+        },
+        {
+          "text": "Cabin Vent",
+          "isCorrect": false,
+          "rationale": "Cabin vents provide air to the occupants, not the engine, and do not affect engine longevity."
+        }
+      ],
+      "hint": "This control provides heated air that bypasses the high-efficiency dry-type filter."
+    },
+    {
+      "question": "What is the recommended enroute climb speed to improve visibility and cooling?",
+      "answerOptions": [
+        {
+          "text": "$85$ mph",
+          "isCorrect": false,
+          "rationale": "This is the best rate of climb speed, but the lower nose attitude of a higher speed is preferred once away from the airport."
+        },
+        {
+          "text": "$100$ mph",
+          "isCorrect": true,
+          "rationale": "Climbing at $100$ mph provides a better forward view over the nose and increased airflow to cool the engine."
+        },
+        {
+          "text": "$74$ mph",
+          "isCorrect": false,
+          "rationale": "This speed results in a very high nose attitude, which significantly reduces visibility."
+        },
+        {
+          "text": "$120$ mph",
+          "isCorrect": false,
+          "rationale": "This is a cruising speed and would result in a very poor rate of climb."
+        }
+      ],
+      "hint": "Check the Climb section in Section III."
+    },
+    {
+      "question": "How should the aircraft be laterally leveled for weighing purposes?",
+      "answerOptions": [
+        {
+          "text": "By deflating one of the main tires",
+          "isCorrect": false,
+          "rationale": "Tire deflation is used for longitudinal (front-to-back) leveling, not lateral (side-to-side) leveling."
+        },
+        {
+          "text": "By placing a level across the baggage compartment floor along the rear bulkhead",
+          "isCorrect": true,
+          "rationale": "This specific structural point is designated as the reference for determining if the aircraft is level from wingtip to wingtip."
+        },
+        {
+          "text": "By checking the fuel levels in both tanks",
+          "isCorrect": false,
+          "rationale": "Fuel levels affect weight but are not used as a leveling reference point."
+        },
+        {
+          "text": "By aligning the wingtips with the horizon",
+          "isCorrect": false,
+          "rationale": "Visual alignment with the horizon is not precise enough for the technical requirements of weighing or rigging."
+        }
+      ],
+      "hint": "This involves using a level inside the storage area behind the seats."
+    },
+    {
+      "question": "What is the glide distance of a PA-28-140 starting from $10,000$ feet above the terrain?",
+      "answerOptions": [
+        {
+          "text": "Approximately $5$ miles",
+          "isCorrect": false,
+          "rationale": "The aircraft is much more efficient than this; $5$ miles would be an extremely steep descent."
+        },
+        {
+          "text": "Approximately $15$ miles",
+          "isCorrect": true,
+          "rationale": "Based on the Glide Distance chart, the aircraft covers about $1.5$ miles for every $1000$ feet of altitude."
+        },
+        {
+          "text": "$30$ miles",
+          "isCorrect": false,
+          "rationale": "This exceeds the performance capability of the aircraft under standard glide conditions."
+        },
+        {
+          "text": "$10$ miles",
+          "isCorrect": false,
+          "rationale": "The glide ratio allows for more distance than a $1:1$ mile-per-thousand-feet relationship."
+        }
+      ],
+      "hint": "Consult the Glide Distance vs Altitude chart in Section IV."
+    },
+    {
+      "question": "To maintain best lateral trim during flight, how should fuel be managed?",
+      "answerOptions": [
+        {
+          "text": "Keep both tank selectors on 'Both' at all times",
+          "isCorrect": false,
+          "rationale": "The PA-28-140 fuel system does not have a 'Both' setting; tanks must be selected individually."
+        },
+        {
+          "text": "Use one tank for an hour, then switch to the other until nearly exhausted",
+          "isCorrect": true,
+          "rationale": "This method ensures the weight of the fuel is distributed as evenly as possible across the wings throughout the flight."
+        },
+        {
+          "text": "Always use the left tank first because of engine torque",
+          "isCorrect": false,
+          "rationale": "The manual does not specify a 'left first' rule, but rather a timed rotation between tanks."
+        },
+        {
+          "text": "Only switch tanks when the engine begins to cough",
+          "isCorrect": false,
+          "rationale": "Waiting for engine symptoms is dangerous and poor fuel management practice."
+        }
+      ],
+      "hint": "Look at the Cruising instructions in Section III regarding lateral trim."
+    },
+    {
+      "question": "What is the specific model of the propeller used on the Cherokee 140?",
+      "answerOptions": [
+        {
+          "text": "McCauley Constant Speed",
+          "isCorrect": false,
+          "rationale": "The Cherokee 140 uses a fixed-pitch propeller, not a constant-speed model."
+        },
+        {
+          "text": "Sensenich M74DM",
+          "isCorrect": true,
+          "rationale": "This fixed-pitch aluminum alloy unit is the standard propeller for all performance figures in the handbook."
+        },
+        {
+          "text": "Hartzell Three-Blade",
+          "isCorrect": false,
+          "rationale": "Three-blade propellers are typically found on higher-performance aircraft, not the trainer-class Cherokee 140."
+        },
+        {
+          "text": "Sensenich Wood Core",
+          "isCorrect": false,
+          "rationale": "The handbook specifies an aluminum alloy construction for the propeller."
+        }
+      ],
+      "hint": "Refer to the Engine and Propeller description in Section II."
+    }
+  ],
+  "topics": {
+    "covered": [
+      "PA-28-140 Specifications",
+      "Engine Operations",
+      "Fuel and Oil Systems",
+      "Flight Procedures",
+      "Emergency/Abnormal Procedures",
+      "Maintenance Requirements",
+      "Performance Speeds"
+    ],
+    "followUp": [
+      "Weight and Balance Calculations",
+      "Density Altitude Impacts on Performance",
+      "V-speeds and Structural Limits",
+      "FAA Airworthiness Directives",
+      "Aviation Weather and Icing"
+    ]
+  }
+}
