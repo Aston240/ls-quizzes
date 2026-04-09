@@ -675,9 +675,14 @@ async function postResults(name, pct, correct, total, passed, breakdown, timedOu
     }))
   };
   try {
-    const encoded = encodeURIComponent(JSON.stringify(payload));
-    await fetch(quizData.gasUrl + '?data=' + encoded, { method: 'GET', mode: 'no-cors' });
-    status.textContent = '✓ Results recorded';
+    fetch(quizData.gasUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    });
+    setTimeout(() => { status.textContent = '✓ Results recorded'; }, 2000);
   } catch(e) {
     status.textContent = '⚠ Could not submit results — please notify your instructor.';
   }
