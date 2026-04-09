@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LS Airmotive — Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2f45;
+    --navy-light: #243d57;
+    --amber: #f5a623;
+    --green: #2ecc71;
+    --red: #e74c3c;
+    --white: #f0f4f8;
+    --grey: #8a9bb0;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--sans);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header {
+    width: 100%;
+    background: var(--navy-mid);
+    border-bottom: 2px solid var(--amber);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-badge {
+    background: var(--amber);
+    color: var(--navy);
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  header h1 { font-size: 15px; font-weight: 500; letter-spacing: 1px; }
+  .mode-pill {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--grey);
+    text-transform: uppercase;
+    border: 1px solid var(--navy-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .container { width: 100%; max-width: 780px; padding: 40px 24px 80px; }
+  .card {
+    background: var(--navy-mid);
+    border: 1px solid var(--navy-light);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .card-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--grey);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    margin-top: 18px;
+  }
+  label:first-of-type { margin-top: 0; }
+  input[type=text], input[type=number], input[type=email] {
+    width: 100%;
+    background: var(--navy);
+    border: 1px solid var(--navy-light);
+    border-radius: 6px;
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 14px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus { border-color: var(--amber); }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 6px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+  }
+  .btn-primary { background: var(--amber); color: var(--navy); }
+  .btn-primary:hover { background: #f7b84a; transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: var(--white); border: 1px solid var(--navy-light); }
+  .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+  .link-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    border: 1px solid var(--amber);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 16px;
+  }
+  .link-box span {
+    flex: 1;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--amber);
+    word-break: break-all;
+  }
+  .timer-bar-wrap {
+    background: var(--navy-light);
+    border-radius: 4px;
+    height: 5px;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .timer-bar { height: 100%; background: var(--amber); transition: width 1s linear, background 0.5s; border-radius: 4px; }
+  .timer-bar.warning { background: var(--red); }
+  .timer-display { font-family: var(--mono); font-size: 13px; color: var(--grey); text-align: right; margin-bottom: 6px; }
+  .timer-display.warning { color: var(--red); }
+  .quiz-title { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
+  .quiz-meta { font-size: 13px; color: var(--grey); }
+  .quiz-header { margin-bottom: 32px; }
+  .question-block { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--navy-light); }
+  .question-block:last-child { border-bottom: none; }
+  .q-num { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: var(--amber); margin-bottom: 8px; text-transform: uppercase; }
+  .q-text { font-size: 15px; font-weight: 500; margin-bottom: 16px; line-height: 1.5; }
+  .option-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 7px;
+    border: 1px solid var(--navy-light);
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--white);
+    font-weight: 400;
+    margin-top: 0;
+  }
+  .option-label:hover { border-color: var(--amber); background: rgba(245,166,35,0.06); }
+  .option-dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--grey); flex-shrink: 0; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
+  .option-label.selected { border-color: var(--amber); background: rgba(245,166,35,0.08); }
+  .option-label.selected .option-dot { border-color: var(--amber); background: var(--amber); }
+  .option-label.selected .option-dot::after { content: ''; width: 6px; height: 6px; background: var(--navy); border-radius: 50%; }
+  .hint-text { margin-top: 8px; padding: 10px 14px; background: rgba(245,166,35,0.07); border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; font-size: 13px; color: var(--amber); line-height: 1.5; }
+  .score-ring { width: 120px; height: 120px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 24px; font-family: var(--mono); }
+  .score-ring.pass { border: 4px solid var(--green); }
+  .score-ring.fail { border: 4px solid var(--red); }
+  .score-ring .big { font-size: 32px; font-weight: 600; }
+  .score-ring .sub { font-size: 11px; color: var(--grey); letter-spacing: 1px; }
+  .result-verdict { text-align: center; font-size: 20px; font-weight: 600; margin-bottom: 6px; }
+  .result-verdict.pass { color: var(--green); }
+  .result-verdict.fail { color: var(--red); }
+  .result-sub { text-align: center; color: var(--grey); font-size: 13px; margin-bottom: 32px; }
+  .breakdown-item { padding: 14px 0; border-bottom: 1px solid var(--navy-light); }
+  .breakdown-item:last-child { border-bottom: none; }
+  .bd-q { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+  .bd-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 4px; font-size: 13px; }
+  .bd-label { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; padding: 2px 7px; border-radius: 3px; flex-shrink: 0; margin-top: 1px; }
+  .bd-label.correct { background: rgba(46,204,113,0.15); color: var(--green); }
+  .bd-label.wrong { background: rgba(231,76,60,0.15); color: var(--red); }
+  .hidden { display: none !important; }
+  .mt { margin-top: 16px; }
+  .mt2 { margin-top: 24px; }
+  .flex-row-end { display: flex; gap: 12px; justify-content: flex-end; }
+  .text-grey { color: var(--grey); font-size: 13px; }
+  .divider { border: none; border-top: 1px solid var(--navy-light); margin: 24px 0; }
+  .alert { padding: 12px 16px; border-radius: 6px; font-size: 13px; margin-top: 14px; }
+  .alert-error { background: rgba(231,76,60,0.1); border: 1px solid var(--red); color: var(--red); }
+  .alert-success { background: rgba(46,204,113,0.1); border: 1px solid var(--green); color: var(--green); }
+  .name-entry { max-width: 400px; margin: 60px auto; text-align: center; }
+  .name-entry h2 { font-size: 22px; margin-bottom: 8px; }
+  .name-entry p { color: var(--grey); font-size: 14px; margin-bottom: 28px; }
+  .loading-screen { text-align: center; padding: 80px 24px; }
+  .loading-screen p { color: var(--grey); font-family: var(--mono); font-size: 13px; margin-top: 16px; letter-spacing: 1px; }
+  .spinner { width: 36px; height: 36px; border: 3px solid var(--navy-light); border-top-color: var(--amber); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (max-width: 600px) { .container { padding: 24px 16px 60px; } .card { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="logo-badge">LSA</span>
+  <h1>LS Airmotive — Quiz System</h1>
+  <span class="mode-pill" id="modePill">Builder</span>
+</header>
+
+<!-- BUILDER -->
+<div class="container" id="builderView">
+  <div class="card">
+    <div class="card-title">Generate a Quiz Link</div>
+    <p class="text-grey" style="margin-bottom:20px;line-height:1.7;">
+      Upload your quiz JSON to the <code style="color:var(--amber);font-family:var(--mono)">quizzes/</code> folder in your GitHub repo, then fill in the details below.
+    </p>
+
+    <label>Quiz Filename</label>
+    <div style="display:flex;align-items:center;">
+      <span style="background:var(--navy-light);border:1px solid var(--navy-light);border-right:none;border-radius:6px 0 0 6px;padding:10px 12px;font-family:var(--mono);font-size:12px;color:var(--grey);white-space:nowrap;">quizzes/</span>
+      <input type="text" id="quizFilename" placeholder="fob-quiz" style="border-radius:0;border-left:none;border-right:none;">
+      <span style="background:var(--navy-light);border:1px solid var(--navy-light);border-left:none;border-radius:0 6px 6px 0;padding:10px 12px;font-family:var(--mono);font-size:12px;color:var(--grey);white-space:nowrap;">.json</span>
+    </div>
+    <p class="text-grey mt" style="font-size:11px;font-family:var(--mono);">Must match the filename uploaded to GitHub exactly (no spaces).</p>
+
+    <label>Quiz Title <span style="font-size:10px;text-transform:none;letter-spacing:0;">(optional — overrides filename in the quiz header)</span></label>
+    <input type="text" id="quizTitle" placeholder="e.g. Flying Order Book Quiz">
+
+    <label>Pass Mark</label>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
+      <input type="checkbox" id="hasPassMark" style="accent-color:var(--amber);width:auto;cursor:pointer;">
+      <span style="font-size:13px;color:var(--grey);">Enable pass mark</span>
+      <input type="number" id="passMark" placeholder="75" min="1" max="100" style="width:90px;" disabled>
+      <span style="font-size:13px;color:var(--grey);">%</span>
+    </div>
+
+    <label>Your Notification Email</label>
+    <input type="email" id="notifyEmail" placeholder="tom@limasierra.org">
+
+    <label>Google Apps Script URL</label>
+    <input type="text" id="gasUrl" placeholder="https://script.google.com/macros/s/.../exec">
+
+    <div id="buildError" class="alert alert-error hidden"></div>
+
+    <div class="flex-row-end mt2">
+      <button class="btn btn-primary" onclick="generateLink()">✈ Generate Link</button>
+    </div>
+  </div>
+
+  <div id="linkOutput" class="hidden">
+    <div class="card">
+      <div class="card-title">Shareable Link</div>
+      <p class="text-grey" style="font-size:13px;">Share via email or WhatsApp. Anyone who opens it goes straight to the quiz.</p>
+      <div class="link-box">
+        <span id="generatedLink"></span>
+        <button class="btn btn-secondary" onclick="copyLink()" style="flex-shrink:0;font-size:12px;padding:7px 14px;">Copy</button>
+      </div>
+      <div id="copyConfirm" class="alert alert-success hidden" style="padding:8px 14px;">✓ Copied to clipboard</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="card">
+    <div class="card-title">One-Time Setup</div>
+    <p class="text-grey" style="font-size:13px;line-height:1.9;">
+      <strong style="color:var(--white);">1.</strong> Go to <code style="color:var(--amber);font-family:var(--mono);">github.com/Aston240/ls-quizzes</code> → Settings → Pages → Source: <strong style="color:var(--white);">main branch, root</strong>. Save.<br>
+      <strong style="color:var(--white);">2.</strong> Create a folder called <code style="color:var(--amber);font-family:var(--mono);">quizzes</code> in the repo.<br>
+      <strong style="color:var(--white);">3.</strong> Upload this file (<code style="color:var(--amber);font-family:var(--mono);">lsa-quiz.html</code>) to the root of the repo.<br>
+      <strong style="color:var(--white);">4.</strong> For each new quiz, upload its JSON file to the <code style="color:var(--amber);font-family:var(--mono);">quizzes/</code> folder, then use the builder above.<br><br>
+      Your quiz link will look like:<br>
+      <code style="color:var(--amber);font-family:var(--mono);font-size:11px;">https://aston240.github.io/ls-quizzes/lsa-quiz.html?q=...</code>
+    </p>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="container hidden" id="loadingView">
+  <div class="loading-screen">
+    <div class="spinner"></div>
+    <p>Loading quiz...</p>
+  </div>
+</div>
+
+<!-- ERROR -->
+<div class="container hidden" id="errorView">
+  <div class="card" style="text-align:center;padding:48px;">
+    <div style="font-size:36px;margin-bottom:16px;">⚠️</div>
+    <div style="font-size:18px;font-weight:600;margin-bottom:12px;">Quiz Not Found</div>
+    <div class="text-grey" id="errorMsg" style="line-height:1.8;"></div>
+  </div>
+</div>
+
+<!-- NAME ENTRY -->
+<div class="container hidden" id="nameView">
+  <div class="name-entry">
+    <h2 id="takerQuizTitle">Quiz</h2>
+    <p id="takerQuizMeta"></p>
+    <label>Your Name</label>
+    <input type="text" id="takerName" placeholder="First and last name" style="text-align:center;margin-bottom:16px;">
+    <div class="flex-row-end" style="justify-content:center;margin-top:8px;">
+      <button class="btn btn-primary" onclick="startQuiz()">Begin Quiz →</button>
+    </div>
+    <div id="nameError" class="alert alert-error hidden mt"></div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="container hidden" id="quizView">
+  <div class="quiz-header">
+    <div class="timer-display" id="timerDisplay">15:00</div>
+    <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar"></div></div>
+    <div class="quiz-title" id="activeTitle"></div>
+    <div class="quiz-meta" id="activeMeta"></div>
+  </div>
+  <div id="questionsContainer"></div>
+  <div class="flex-row-end mt2">
+    <button class="btn btn-primary" onclick="submitQuiz(false)" id="submitBtn">Submit Quiz</button>
+  </div>
+  <div id="submitError" class="alert alert-error hidden mt"></div>
+</div>
+
+<!-- RESULTS -->
+<div class="container hidden" id="resultsView">
+  <div class="card" style="text-align:center;">
+    <div class="score-ring" id="scoreRing">
+      <span class="big" id="scorePercent"></span>
+      <span class="sub">SCORE</span>
+    </div>
+    <div class="result-verdict" id="resultVerdict"></div>
+    <div class="result-sub" id="resultSub"></div>
+    <div id="submissionStatus" class="text-grey" style="font-size:12px;font-family:var(--mono);"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Question Breakdown</div>
+    <div id="breakdownContainer"></div>
+  </div>
+</div>
+
+<script>
+const BASE_URL = 'https://aston240.github.io/ls-quizzes';
+const QUIZ_TIME_SECONDS = 15 * 60;
+
+let quizData = null;
+let answers = {};
+let timerInterval = null;
+let timeLeft = QUIZ_TIME_SECONDS;
+
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('q')) {
+    loadQuiz(params.get('q'));
+  } else {
+    show('builderView');
+    document.getElementById('modePill').textContent = 'Builder';
+    document.getElementById('hasPassMark').addEventListener('change', e => {
+      document.getElementById('passMark').disabled = !e.target.checked;
+    });
+  }
+});
+
+function show(id) {
+  ['builderView','loadingView','errorView','nameView','quizView','resultsView']
+    .forEach(v => document.getElementById(v).classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+// ── BUILDER ──────────────────────────
+function generateLink() {
+  const filename = document.getElementById('quizFilename').value.trim()
+    .replace(/\.json$/i,'').replace(/[^a-zA-Z0-9_-]/g,'');
+  const title    = document.getElementById('quizTitle').value.trim();
+  const gasUrl   = document.getElementById('gasUrl').value.trim();
+  const email    = document.getElementById('notifyEmail').value.trim();
+  const hasPass  = document.getElementById('hasPassMark').checked;
+  const passMark = hasPass ? parseInt(document.getElementById('passMark').value) : null;
+  const errEl    = document.getElementById('buildError');
+
+  if (!filename) { errEl.textContent = 'Please enter a quiz filename.'; errEl.classList.remove('hidden'); return; }
+  if (!gasUrl)   { errEl.textContent = 'Please enter your Google Apps Script URL.'; errEl.classList.remove('hidden'); return; }
+  errEl.classList.add('hidden');
+
+  const config = { f: filename };
+  if (title)    config.t = title;
+  if (passMark) config.p = passMark;
+  if (email)    config.e = email;
+  if (gasUrl)   config.g = gasUrl;
+
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(config))));
+  const base = window.location.href.split('?')[0];
+  const link = `${base}?q=${encoded}`;
+
+  document.getElementById('generatedLink').textContent = link;
+  document.getElementById('linkOutput').classList.remove('hidden');
+  document.getElementById('copyConfirm').classList.add('hidden');
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(document.getElementById('generatedLink').textContent).then(() => {
+    const el = document.getElementById('copyConfirm');
+    el.classList.remove('hidden');
+    setTimeout(() => el.classList.add('hidden'), 3000);
+  });
+}
+
+// ── LOAD QUIZ ────────────────────────
+async function loadQuiz(encoded) {
+  document.getElementById('modePill').textContent = 'Quiz';
+  show('loadingView');
+
+  let config;
+  try {
+    config = JSON.parse(decodeURIComponent(escape(atob(encoded))));
+  } catch(e) {
+    showError('Invalid quiz link. Please request a new one from your instructor.'); return;
+  }
+
+  const filename = config.f;
+  if (!filename) { showError('No quiz filename in this link.'); return; }
+
+  const url = `${BASE_URL}/quizzes/${filename}.json`;
+  let raw;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    raw = await res.json();
+  } catch(e) {
+    showError(
+      `Could not load <strong>${filename}.json</strong> from GitHub.<br><br>` +
+      `Expected at:<br><code style="color:var(--amber);font-family:var(--mono);font-size:11px;">${url}</code><br><br>` +
+      `Check the file exists in the <code style="color:var(--amber);font-family:var(--mono);">quizzes/</code> folder and GitHub Pages is enabled.`
+    ); return;
+  }
+
+  if (!raw.quiz || !Array.isArray(raw.quiz) || raw.quiz.length === 0) {
+    showError('Quiz file loaded but contains no questions. Check the JSON format.'); return;
+  }
+
+  const questions = [];
+  raw.quiz.forEach(item => {
+    if (!item.question || !Array.isArray(item.answerOptions)) return;
+    const correctIdx = item.answerOptions.findIndex(o => o.isCorrect === true);
+    if (correctIdx < 0) return;
+    questions.push({
+      q:          stripLatex(item.question),
+      options:    item.answerOptions.map(o => stripLatex(o.text)),
+      rationales: item.answerOptions.map(o => o.rationale ? stripLatex(o.rationale) : ''),
+      correct:    correctIdx,
+      hint:       item.hint ? stripLatex(item.hint) : null
+    });
+  });
+
+  if (questions.length === 0) { showError('No valid questions found in this quiz file.'); return; }
+
+  quizData = {
+    title:       config.t || titleFromFilename(filename),
+    passMark:    config.p || null,
+    gasUrl:      config.g || null,
+    notifyEmail: config.e || null,
+    questions
+  };
+
+  show('nameView');
+  document.getElementById('takerQuizTitle').textContent = quizData.title;
+  const meta = [`${questions.length} questions`, '15 minutes'];
+  if (quizData.passMark) meta.push(`Pass mark: ${quizData.passMark}%`);
+  document.getElementById('takerQuizMeta').textContent = meta.join(' · ');
+}
+
+function showError(msg) { show('errorView'); document.getElementById('errorMsg').innerHTML = msg; }
+function titleFromFilename(f) { return f.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); }
+function stripLatex(s) { return s ? s.replace(/\$/g,'') : ''; }
+
+// ── QUIZ ─────────────────────────────
+function startQuiz() {
+  const name = document.getElementById('takerName').value.trim();
+  if (!name) {
+    document.getElementById('nameError').textContent = 'Please enter your name.';
+    document.getElementById('nameError').classList.remove('hidden');
+    return;
+  }
+  show('quizView');
+  document.getElementById('activeTitle').textContent = quizData.title;
+  document.getElementById('activeMeta').textContent = `${quizData.questions.length} questions · Good luck, ${name}!`;
+  renderQuestions();
+  startTimer();
+}
+
+function renderQuestions() {
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
+  quizData.questions.forEach((q, qi) => {
+    const block = document.createElement('div');
+    block.className = 'question-block';
+    const hintHtml = q.hint ? `
+      <div id="hint-wrap-${qi}" style="margin-top:8px;">
+        <button class="btn btn-secondary" style="font-size:11px;padding:5px 13px;" onclick="revealHint(${qi})">💡 Show Hint</button>
+        <div class="hint-text hidden" id="hint-${qi}">${escHtml(q.hint)}</div>
+      </div>` : '';
+    block.innerHTML = `
+      <div class="q-num">Question ${qi+1} of ${quizData.questions.length}</div>
+      <div class="q-text">${escHtml(q.q)}</div>
+      ${hintHtml}
+      <div id="opts-${qi}" style="margin-top:14px;"></div>`;
+    container.appendChild(block);
+    const optsDiv = block.querySelector(`#opts-${qi}`);
+    q.options.forEach((opt, oi) => {
+      const lbl = document.createElement('label');
+      lbl.className = 'option-label';
+      lbl.innerHTML = `<span class="option-dot"></span><span>${escHtml(opt)}</span>`;
+      lbl.addEventListener('click', () => selectOption(qi, oi));
+      optsDiv.appendChild(lbl);
+    });
+  });
+}
+
+function revealHint(qi) {
+  document.getElementById(`hint-wrap-${qi}`).querySelector('button').classList.add('hidden');
+  document.getElementById(`hint-${qi}`).classList.remove('hidden');
+}
+
+function selectOption(qi, oi) {
+  answers[qi] = oi;
+  document.getElementById(`opts-${qi}`).querySelectorAll('.option-label')
+    .forEach((lbl,i) => lbl.classList.toggle('selected', i===oi));
+}
+
+// ── TIMER ─────────────────────────────
+function startTimer() {
+  timeLeft = QUIZ_TIME_SECONDS;
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay();
+    if (timeLeft <= 0) { clearInterval(timerInterval); submitQuiz(true); }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(timeLeft/60), s = timeLeft%60;
+  const warn = timeLeft <= 120;
+  const disp = document.getElementById('timerDisplay');
+  const bar  = document.getElementById('timerBar');
+  disp.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}${warn?' ⚠':''}`;
+  disp.classList.toggle('warning', warn);
+  bar.style.width = ((timeLeft/QUIZ_TIME_SECONDS)*100)+'%';
+  bar.classList.toggle('warning', warn);
+}
+
+// ── SUBMIT ────────────────────────────
+function submitQuiz(timedOut) {
+  if (!timedOut) {
+    const unanswered = quizData.questions.length - Object.keys(answers).length;
+    if (unanswered > 0) {
+      const err = document.getElementById('submitError');
+      err.textContent = `${unanswered} question${unanswered!==1?'s':''} unanswered. Answer all questions or click Submit again to submit as-is.`;
+      err.classList.remove('hidden');
+      document.getElementById('submitBtn').textContent = 'Submit Anyway';
+      document.getElementById('submitBtn').onclick = () => finaliseSubmit(false);
+      return;
+    }
+  }
+  finaliseSubmit(timedOut);
+}
+
+function finaliseSubmit(timedOut) {
+  clearInterval(timerInterval);
+  show('resultsView');
+
+  const name  = document.getElementById('takerName').value.trim();
+  const total = quizData.questions.length;
+  let correct = 0;
+  const breakdown = [];
+
+  quizData.questions.forEach((q,qi) => {
+    const given = answers[qi] !== undefined ? answers[qi] : null;
+    const isCorrect = given === q.correct;
+    if (isCorrect) correct++;
+    breakdown.push({ q:q.q, options:q.options, rationales:q.rationales||[], correct:q.correct, given, isCorrect });
+  });
+
+  const pct    = Math.round((correct/total)*100);
+  const hasPM  = quizData.passMark !== null && quizData.passMark !== undefined;
+  const passed = hasPM ? pct >= quizData.passMark : null;
+
+  document.getElementById('scorePercent').textContent = pct+'%';
+  const ring = document.getElementById('scoreRing');
+
+  if (hasPM) {
+    ring.className = 'score-ring '+(passed?'pass':'fail');
+    document.getElementById('resultVerdict').textContent = passed ? '✓ PASS' : '✗ FAIL';
+    document.getElementById('resultVerdict').className = 'result-verdict '+(passed?'pass':'fail');
+    document.getElementById('resultSub').textContent = `${correct} of ${total} correct · Pass mark: ${quizData.passMark}%${timedOut?' · Time expired':''}`;
+  } else {
+    ring.className = 'score-ring pass';
+    document.getElementById('resultVerdict').textContent = 'Completed';
+    document.getElementById('resultVerdict').className = 'result-verdict pass';
+    document.getElementById('resultSub').textContent = `${correct} of ${total} correct${timedOut?' · Time expired':''}`;
+  }
+
+  renderBreakdown(breakdown);
+  postResults(name, pct, correct, total, passed, breakdown, timedOut);
+}
+
+function renderBreakdown(breakdown) {
+  const container = document.getElementById('breakdownContainer');
+  container.innerHTML = '';
+  breakdown.forEach((item,i) => {
+    const div = document.createElement('div');
+    div.className = 'breakdown-item';
+    const yourLabel  = item.given !== null ? item.options[item.given] : '(not answered)';
+    const corrLabel  = item.options[item.correct];
+    const yourRat    = !item.isCorrect && item.given !== null && item.rationales[item.given]
+      ? `<div style="font-size:12px;color:var(--grey);margin:3px 0 6px 0;padding-left:4px;font-style:italic;">${escHtml(item.rationales[item.given])}</div>` : '';
+    const corrRat    = item.rationales[item.correct]
+      ? `<div style="font-size:12px;color:var(--green);margin-top:4px;padding-left:4px;font-style:italic;opacity:0.85;">${escHtml(item.rationales[item.correct])}</div>` : '';
+    div.innerHTML = `
+      <div class="bd-q">${i+1}. ${escHtml(item.q)}</div>
+      <div class="bd-row"><span class="bd-label ${item.isCorrect?'correct':'wrong'}">YOUR ANSWER</span><span>${escHtml(yourLabel)}</span></div>
+      ${yourRat}
+      ${!item.isCorrect?`<div class="bd-row"><span class="bd-label correct">CORRECT</span><span>${escHtml(corrLabel)}</span></div>`:''}
+      ${corrRat}`;
+    container.appendChild(div);
+  });
+}
+
+// ── POST RESULTS ──────────────────────
+async function postResults(name, pct, correct, total, passed, breakdown, timedOut) {
+  const status = document.getElementById('submissionStatus');
+  if (!quizData.gasUrl) { status.textContent = '⚠ No results endpoint configured.'; return; }
+  status.textContent = 'Submitting results…';
+  const payload = {
+    action: 'quiz_result', name,
+    quizTitle: quizData.title,
+    score: pct, correct, total,
+    passed: passed !== null ? (passed?'PASS':'FAIL') : 'N/A',
+    timedOut,
+    notifyEmail: quizData.notifyEmail,
+    timestamp: new Date().toISOString(),
+    answers: breakdown.map(b => ({
+      q: b.q,
+      given: b.given !== null ? b.options[b.given] : '(not answered)',
+      correct: b.options[b.correct],
+      isCorrect: b.isCorrect
+    }))
+  };
+  try {
+    await fetch(quizData.gasUrl, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+    status.textContent = '✓ Results recorded';
+  } catch(e) {
+    status.textContent = '⚠ Could not submit results — please notify your instructor.';
+  }
+}
+
+function escHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
