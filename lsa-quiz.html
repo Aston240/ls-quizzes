@@ -675,7 +675,8 @@ async function postResults(name, pct, correct, total, passed, breakdown, timedOu
     }))
   };
   try {
-    await fetch(quizData.gasUrl, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+    const encoded = encodeURIComponent(JSON.stringify(payload));
+    await fetch(quizData.gasUrl + '?data=' + encoded, { method: 'GET', mode: 'no-cors' });
     status.textContent = '✓ Results recorded';
   } catch(e) {
     status.textContent = '⚠ Could not submit results — please notify your instructor.';
