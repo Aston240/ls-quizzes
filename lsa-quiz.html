@@ -676,35 +676,46 @@ async function postResults(name, pct, correct, total, passed, breakdown, timedOu
     }))
   };
 
+  const json = JSON.stringify(payload);
+
+  // Try fetch first
   try {
-    // Hidden iframe to absorb the form response
-    let iframe = document.getElementById('submitFrame');
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.name = 'submitFrame';
-      iframe.id = 'submitFrame';
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
+    await fetch(quizData.gasUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+      body: json
+    });
+    status.textContent = '✓ Results recorded';
+    return;
+  } catch(e) {
+    // fall through to image beacon
+  }
+
+  // Fallback: image beacon via GET (for Safari)
+  try {
+    const chunks = [];
+    const chunkSize = 1500;
+    const encoded = encodeURIComponent(json);
+    // Split into chunks if too long
+    if (encoded.length <= chunkSize) {
+      await fetch(quizData.gasUrl + '?data=' + encoded, { mode: 'no-cors' });
+    } else {
+      // Send summary only
+      const summary = JSON.stringify({
+        action: 'quiz_result', name,
+        quizTitle: quizData.title,
+        score: pct, correct, total,
+        passed: passed !== null ? (passed?'PASS':'FAIL') : 'N/A',
+        timedOut,
+        notifyEmail: quizData.notifyEmail,
+        timestamp: new Date().toISOString(),
+        answers: []
+      });
+      await fetch(quizData.gasUrl + '?data=' + encodeURIComponent(summary), { mode: 'no-cors' });
     }
-
-    // Hidden form submission — works on all browsers including Safari
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = quizData.gasUrl;
-    form.target = 'submitFrame';
-    form.style.display = 'none';
-
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = 'payload';
-    input.value = JSON.stringify(payload);
-    form.appendChild(input);
-
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-
-    setTimeout(() => { status.textContent = '✓ Results recorded'; }, 2000);
+    status.textContent = '✓ Results recorded';
   } catch(e) {
     status.textContent = '⚠ Could not submit results — please notify your instructor.';
   }
