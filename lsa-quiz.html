@@ -534,10 +534,22 @@ function renderQuestions() {
     container.appendChild(block);
     const optsDiv = block.querySelector(`#opts-${qi}`);
     q.options.forEach((opt, oi) => {
-      const lbl = document.createElement('label');
+      const lbl = document.createElement('div');
       lbl.className = 'option-label';
+      lbl.setAttribute('data-qi', qi);
+      lbl.setAttribute('data-oi', oi);
       lbl.innerHTML = `<span class="option-dot"></span><span>${escHtml(opt)}</span>`;
-      lbl.addEventListener('click', () => selectOption(qi, oi));
+      lbl.addEventListener('click', function() {
+        const qIdx = parseInt(this.getAttribute('data-qi'));
+        const oIdx = parseInt(this.getAttribute('data-oi'));
+        selectOption(qIdx, oIdx);
+      });
+      lbl.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        const qIdx = parseInt(this.getAttribute('data-qi'));
+        const oIdx = parseInt(this.getAttribute('data-oi'));
+        selectOption(qIdx, oIdx);
+      });
       optsDiv.appendChild(lbl);
     });
   });
