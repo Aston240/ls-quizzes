@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>LS Airmotive — Quiz</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -237,6 +240,12 @@
     <label>Quiz Title <span style="font-size:10px;text-transform:none;letter-spacing:0;">(optional — overrides filename in the quiz header)</span></label>
     <input type="text" id="quizTitle" placeholder="e.g. Flying Order Book Quiz">
 
+    <label>Exam Mode</label>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
+      <input type="checkbox" id="examMode" style="accent-color:var(--amber);width:auto;cursor:pointer;">
+      <span style="font-size:13px;color:var(--grey);">Hide hints, correct answers and question breakdown on results screen</span>
+    </div>
+
     <label>Timer</label>
     <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
       <input type="checkbox" id="hasTimer" style="accent-color:var(--amber);width:auto;cursor:pointer;" checked>
@@ -389,6 +398,7 @@ function generateLink() {
   const title    = document.getElementById('quizTitle').value.trim();
   const gasUrl   = GAS_URL;
   const email    = NOTIFY_EMAIL;
+  const examMode = document.getElementById('examMode').checked;
   const hasTimer  = document.getElementById('hasTimer').checked;
   const timerMins = hasTimer ? (parseInt(document.getElementById('timerMins').value) || 15) : null;
   const hasPass  = document.getElementById('hasPassMark').checked;
@@ -404,6 +414,7 @@ function generateLink() {
   if (email)      config.e = email;
   if (gasUrl)     config.g = gasUrl;
   if (timerMins)  config.m = timerMins;
+  if (examMode)   config.x = true;
 
   const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(config))));
   const base = window.location.href.split('?')[0];
@@ -438,7 +449,7 @@ async function loadQuiz(encoded) {
   const filename = config.f;
   if (!filename) { showError('No quiz filename in this link.'); return; }
 
-  const url = `${BASE_URL}/quizzes/${filename}.json`;
+  const url = `${BASE_URL}/quizzes/${filename}.json?v=${Date.now()}`;
   let raw;
   try {
     const res = await fetch(url);
@@ -478,6 +489,7 @@ async function loadQuiz(encoded) {
     gasUrl:      config.g || null,
     notifyEmail: config.e || null,
     timerMins:   config.m || null,
+    examMode:    config.x || false,
     questions
   };
 
@@ -521,7 +533,7 @@ function renderQuestions() {
   quizData.questions.forEach((q, qi) => {
     const block = document.createElement('div');
     block.className = 'question-block';
-    const hintHtml = q.hint ? `
+    const hintHtml = q.hint && !quizData.examMode ? `
       <div id="hint-wrap-${qi}" style="margin-top:8px;">
         <button class="btn btn-secondary" style="font-size:11px;padding:5px 13px;" onclick="revealHint(${qi})">💡 Show Hint</button>
         <div class="hint-text hidden" id="hint-${qi}">${escHtml(q.hint)}</div>
@@ -641,6 +653,9 @@ function finaliseSubmit(timedOut) {
   }
 
   renderBreakdown(breakdown);
+  if (quizData.examMode) {
+    document.querySelector('#resultsView .card:last-child').classList.add('hidden');
+  }
   postResults(name, pct, correct, total, passed, breakdown, timedOut);
 }
 
