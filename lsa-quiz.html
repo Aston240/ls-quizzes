@@ -472,11 +472,20 @@ async function loadQuiz(encoded) {
     if (!item.question || !Array.isArray(item.answerOptions)) return;
     const correctIdx = item.answerOptions.findIndex(o => o.isCorrect === true);
     if (correctIdx < 0) return;
+
+    // Shuffle options so correct answer isn't always first
+    const opts = item.answerOptions.map((o, i) => ({ ...o, origIdx: i }));
+    for (let i = opts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [opts[i], opts[j]] = [opts[j], opts[i]];
+    }
+    const newCorrectIdx = opts.findIndex(o => o.isCorrect === true);
+
     questions.push({
       q:          stripLatex(item.question),
-      options:    item.answerOptions.map(o => stripLatex(o.text)),
-      rationales: item.answerOptions.map(o => o.rationale ? stripLatex(o.rationale) : ''),
-      correct:    correctIdx,
+      options:    opts.map(o => stripLatex(o.text)),
+      rationales: opts.map(o => o.rationale ? stripLatex(o.rationale) : ''),
+      correct:    newCorrectIdx,
       hint:       item.hint ? stripLatex(item.hint) : null
     });
   });
@@ -574,8 +583,15 @@ function revealHint(qi) {
 
 function selectOption(qi, oi) {
   answers[qi] = oi;
-  document.getElementById(`opts-${qi}`).querySelectorAll('.option-label')
-    .forEach((lbl,i) => lbl.classList.toggle('selected', i===oi));
+  const optsDiv = document.getElementById('opts-' + qi);
+  if (!optsDiv) return;
+  optsDiv.querySelectorAll('.option-label').forEach(function(lbl, i) {
+    if (i === oi) {
+      lbl.classList.add('selected');
+    } else {
+      lbl.classList.remove('selected');
+    }
+  });
 }
 
 // ── TIMER ─────────────────────────────
