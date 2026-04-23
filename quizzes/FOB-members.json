@@ -1,0 +1,662 @@
+
+{
+  "quiz": [
+    {
+      "question": "How often must a club member complete a new membership form to remain current with LS Airmotive (LSA) regulations?",
+      "answerOptions": [
+        {
+          "text": "Every two years",
+          "isCorrect": false,
+          "rationale": "A biennial renewal is too infrequent to ensure members stay updated on potential amendments to the Flying Order Book."
+        },
+        {
+          "text": "Every six months",
+          "isCorrect": false,
+          "rationale": "While frequent, this is not the standard administrative period specified for membership form renewal."
+        },
+        {
+          "text": "Annually and upon any amendment to the form",
+          "isCorrect": true,
+          "rationale": "Members are required to take responsibility for following the provisions in the FOB by renewing their membership annually and whenever the form is updated."
+        },
+        {
+          "text": "Only once upon joining the club",
+          "isCorrect": false,
+          "rationale": "Regulations require recurring confirmation that the member accepts the current version of the Flying Order Book."
+        }
+      ],
+      "hint": "Consider the standard administrative cycle for most aviation club memberships and how they handle rule updates."
+    },
+    {
+      "question": "A PPL holder with 5 hours of $P1$ time after gaining their license wishes to fly to an airfield outside the local area. What is the requirement for this flight?",
+      "answerOptions": [
+        {
+          "text": "They are strictly prohibited from leaving the local area until reaching 10 hours $P1$.",
+          "isCorrect": false,
+          "rationale": "The rules do not forbid navigation exercises, but rather impose a supervisory requirement for low-experience pilots."
+        },
+        {
+          "text": "The sortie must be discussed with a member of staff and authorized in the Tech Log.",
+          "isCorrect": true,
+          "rationale": "Pilots with less than 10 hours $P1$ post-PPL must discuss non-local sorties with staff and obtain specific authorization."
+        },
+        {
+          "text": "They may self-authorize if the weather visibility is greater than $10$ km.",
+          "isCorrect": false,
+          "rationale": "Experience level, not just weather, dictates the authorization requirements for new license holders."
+        },
+        {
+          "text": "They must be accompanied by a flight instructor.",
+          "isCorrect": false,
+          "rationale": "A check-out or discussion is required, but a full dual flight is not mandated by the FOB for every cross-country trip."
+        }
+      ],
+      "hint": "Low-hour pilots require additional supervision for flights that extend beyond the local training environment."
+    },
+    {
+      "question": "Which of the following aircraft features requires specific 'Differences Training' rather than just 'Familiarisation Training'?",
+      "answerOptions": [
+        {
+          "text": "A standard Fixed-Pitch Propeller",
+          "isCorrect": false,
+          "rationale": "Fixed-pitch propellers are standard for basic training and do not require specialized differences training."
+        },
+        {
+          "text": "Retractable Undercarriage",
+          "isCorrect": true,
+          "rationale": "Retractable gear is specifically listed as a complex feature requiring formal differences training recorded in the logbook."
+        },
+        {
+          "text": "A different model of PA28 (e.g., 140 vs 151)",
+          "isCorrect": false,
+          "rationale": "Moving between similar models typically falls under familiarisation training rather than technical differences training."
+        },
+        {
+          "text": "Standard Analogue Flight Instruments",
+          "isCorrect": false,
+          "rationale": "Analogue gauges are the baseline; it is the transition to EFIS that requires differences training."
+        }
+      ],
+      "hint": "Focus on mechanical complexities or advanced systems that significantly change aircraft operation."
+    },
+    {
+      "question": "Where should a pilot enter a technical defect found on an aircraft during a pre-flight check?",
+      "answerOptions": [
+        {
+          "text": "On the paper whiteboard in the Ops Office",
+          "isCorrect": false,
+          "rationale": "Physical boards are not the official primary recording system for technical defects."
+        },
+        {
+          "text": "In the 'Notes' section of their personal pilot logbook",
+          "isCorrect": false,
+          "rationale": "A personal logbook does not inform the club or other pilots of the aircraft's maintenance status."
+        },
+        {
+          "text": "In the defects section of Flight Schedule Pro (FSP)",
+          "isCorrect": true,
+          "rationale": "FSP is the designated digital technical log where all defects must be recorded after discussion with staff."
+        },
+        {
+          "text": "Directly into the aircraft's permanent maintenance folder",
+          "isCorrect": false,
+          "rationale": "While eventually recorded there by engineers, the pilot's first duty is to notify the club via the operational software."
+        }
+      ],
+      "hint": "The club uses a specific digital management system for scheduling and maintenance tracking."
+    },
+    {
+      "question": "For a PPL holder who has not flown an LSA aircraft within the last 30 days, what must occur before they can fly solo again?",
+      "answerOptions": [
+        {
+          "text": "They must fly at least 1 hour of solo circuits.",
+          "isCorrect": false,
+          "rationale": "Solo flying is not permitted until the currency check is completed with an instructor."
+        },
+        {
+          "text": "A currency check with a Club instructor is required.",
+          "isCorrect": true,
+          "rationale": "The 30-day rule for PPL holders ensures that pilots maintain familiarity with club procedures and aircraft handling."
+        },
+        {
+          "text": "They must renew their CAA Medical certificate.",
+          "isCorrect": false,
+          "rationale": "Medical certificates have much longer validity periods and are not affected by a 30-day lapse in flying."
+        },
+        {
+          "text": "They only need to sign the Flying Order Book again.",
+          "isCorrect": false,
+          "rationale": "Administrative signatures cannot replace the requirement for a practical check-flight after a period of inactivity."
+        }
+      ],
+      "hint": "Safety rules often mandate a dual flight after a specific period of inactivity to ensure the pilot's skills haven't regressed."
+    },
+    {
+      "question": "To carry passengers, what is the 'recency' requirement regarding take-offs and landings?",
+      "answerOptions": [
+        {
+          "text": "3 take-offs and landings in the previous 90 days",
+          "isCorrect": true,
+          "rationale": "This standard regulation ensures the pilot has recently practiced the most critical phases of flight before taking responsibility for passengers."
+        },
+        {
+          "text": "5 take-offs and landings in the previous 6 months",
+          "isCorrect": false,
+          "rationale": "This timeframe is too long and the number of landings does not meet the legal 90-day requirement."
+        },
+        {
+          "text": "1 take-off and landing in the previous 30 days",
+          "isCorrect": false,
+          "rationale": "While frequent, a single landing does not satisfy the count requirement for passenger carriage."
+        },
+        {
+          "text": "10 take-offs and landings in the previous year",
+          "isCorrect": false,
+          "rationale": "A yearly requirement is insufficient for maintaining the proficiency needed for passenger safety."
+        }
+      ],
+      "hint": "Think of the 'Rule of Three' and the three-month window typically used in general aviation recency."
+    },
+    {
+      "question": "If air traffic control requests an early turn after take-off, what are the minimum heights mandated by LSA?",
+      "answerOptions": [
+        {
+          "text": "100 ft QFE or 350 ft QNH",
+          "isCorrect": false,
+          "rationale": "Turning at 100 feet is extremely hazardous and does not provide sufficient altitude for engine failure management."
+        },
+        {
+          "text": "300 ft QFE or 550 ft QNH",
+          "isCorrect": true,
+          "rationale": "These heights ensure the aircraft is clear of the immediate runway environment and has attained a safer maneuvering altitude."
+        },
+        {
+          "text": "500 ft QFE or 750 ft QNH",
+          "isCorrect": false,
+          "rationale": "While safe, these are higher than the minimums specified for an early turn request."
+        },
+        {
+          "text": "1000 ft QFE or 1250 ft QNH",
+          "isCorrect": false,
+          "rationale": "Standard circuit height is usually 1000 ft; an early turn is by definition lower than this."
+        }
+      ],
+      "hint": "There are two specific numbers depending on whether you are using the aerodrome pressure or sea-level pressure."
+    },
+    {
+      "question": "What is the minimum height for a student pilot to recover from a solo stall practice?",
+      "answerOptions": [
+        {
+          "text": "2000 ft AGL",
+          "isCorrect": false,
+          "rationale": "Recovering at 2000 feet does not provide the safety buffer required for solo students."
+        },
+        {
+          "text": "3000 ft AGL",
+          "isCorrect": false,
+          "rationale": "3000 feet is the minimum for dual instruction, but solo flight requires a higher margin."
+        },
+        {
+          "text": "4000 ft AGL",
+          "isCorrect": true,
+          "rationale": "The LSA Flying Order Book mandates a 4000 ft AGL recovery height for solo stall practice to allow for extra safety."
+        },
+        {
+          "text": "5000 ft AGL",
+          "isCorrect": false,
+          "rationale": "While 5000 feet is safer, it is above the specific minimum recovery height mandated by the club orders."
+        }
+      ],
+      "hint": "Solo recovery requirements are 1000 feet higher than dual recovery requirements."
+    },
+    {
+      "question": "How often should an instructor or pilot smoothly apply power during a Practice Forced Landing (PFL) descent to prevent 'shock cooling'?",
+      "answerOptions": [
+        {
+          "text": "Every 500 feet",
+          "isCorrect": false,
+          "rationale": "Clearing the engine every 500 feet is more frequent than the procedure specified in the orders."
+        },
+        {
+          "text": "Every 1000 feet",
+          "isCorrect": true,
+          "rationale": "Clearing the engine every 1000 feet ensures it remains warm and responsive if a go-around is needed."
+        },
+        {
+          "text": "Only once when reaching 500 ft AGL",
+          "isCorrect": false,
+          "rationale": "Waiting until the end of the descent risks the engine having already cooled significantly, potentially causing issues."
+        },
+        {
+          "text": "It is not necessary for modern engines.",
+          "isCorrect": false,
+          "rationale": "Piston engines in club aircraft are susceptible to shock cooling and plug fouling during prolonged idle descents."
+        }
+      ],
+      "hint": "This procedural step occurs at regular large intervals during a glide."
+    },
+    {
+      "question": "According to the Flying Order Book, what is the recommended speed and configuration for a PA28 in low-level flight?",
+      "answerOptions": [
+        {
+          "text": "90-95 kt and flaps up",
+          "isCorrect": false,
+          "rationale": "Higher speeds reduce the time available for decision-making and maneuvering at low altitudes."
+        },
+        {
+          "text": "75-80 kt and 2 stages of flap",
+          "isCorrect": true,
+          "rationale": "This specific configuration provides a better view over the nose and more maneuverability at lower speeds during bad weather."
+        },
+        {
+          "text": "65-70 kt and 3 stages of flap",
+          "isCorrect": false,
+          "rationale": "This configuration is too close to the stall speed and creates excessive drag for sustained low-level flight."
+        },
+        {
+          "text": "Best glide speed ($V_g$)",
+          "isCorrect": false,
+          "rationale": "Best glide is for engine failure scenarios, not standard low-level flight in deteriorating weather."
+        }
+      ],
+      "hint": "The configuration involves a specific speed range and partial flap deployment."
+    },
+    {
+      "question": "What is the correct response for a solo student pilot who receives a 'land-after' clearance from ATC?",
+      "answerOptions": [
+        {
+          "text": "Accept the clearance and land cautiously.",
+          "isCorrect": false,
+          "rationale": "LSA orders strictly forbid solo students from accepting 'land-after' clearances due to the reduced safety margin."
+        },
+        {
+          "text": "Report 'Unable, student pilot' and initiate a go-around or wait for full clearance.",
+          "isCorrect": true,
+          "rationale": "Solo students must prioritize safety by ensuring the runway is fully clear before landing."
+        },
+        {
+          "text": "Land but only if the previous aircraft is already clear of the runway.",
+          "isCorrect": false,
+          "rationale": "A 'land-after' clearance implies the previous aircraft is *not* yet clear; the student must decline the clearance entirely."
+        },
+        {
+          "text": "Request a 'low approach and go' instead.",
+          "isCorrect": false,
+          "rationale": "While a go-around is an option, the specific required radio call and action are to state their student status and inability to comply."
+        }
+      ],
+      "hint": "Solo students are required to identify themselves to the controller when they cannot accept reduced separation."
+    },
+    {
+      "question": "What are the weather minima for a solo student pilot conducting a navigation exercise outside the circuit?",
+      "answerOptions": [
+        {
+          "text": "5 km visibility and 1500 ft cloud base",
+          "isCorrect": false,
+          "rationale": "These are the standard PPL minima, which are less restrictive than those for students on cross-country flights."
+        },
+        {
+          "text": "10 km visibility and cloud base at least 500 ft above MSA",
+          "isCorrect": true,
+          "rationale": "Students require high visibility and a significant cloud buffer above the Minimum Safe Altitude for safe navigation."
+        },
+        {
+          "text": "7 km visibility and 1500 ft cloud base",
+          "isCorrect": false,
+          "rationale": "These are the student minima for circuit flying, not for cross-country navigation."
+        },
+        {
+          "text": "Visibility sufficient to see the next waypoint",
+          "isCorrect": false,
+          "rationale": "Specific numeric visibility and cloud base limits are defined in the FOB to remove ambiguity."
+        }
+      ],
+      "hint": "Students navigating solo need the best possible conditions, including double the visibility required for a standard PPL."
+    },
+    {
+      "question": "For a pilot with less than 100 hours of $P1$ time, what is the maximum crosswind component allowed for takeoff or landing?",
+      "answerOptions": [
+        {
+          "text": "10 kt",
+          "isCorrect": false,
+          "rationale": "This lower limit applies to non-PPL holders (students)."
+        },
+        {
+          "text": "12 kt",
+          "isCorrect": true,
+          "rationale": "LSA imposes a graduated crosswind limit based on pilot experience to manage risk during the landing phase."
+        },
+        {
+          "text": "17 kt",
+          "isCorrect": false,
+          "rationale": "This higher limit is reserved for pilots with at least 100 hours of $P1$ or instructors."
+        },
+        {
+          "text": "25 kt",
+          "isCorrect": false,
+          "rationale": "25 knots is the total surface wind limit, not the crosswind component limit."
+        }
+      ],
+      "hint": "The limit is slightly higher than the student limit but lower than the max demonstrated for most light aircraft."
+    },
+    {
+      "question": "True or False: Club aircraft may be flown if the runway is partially covered with slush, provided the take-off distance is calculated as sufficient.",
+      "answerOptions": [
+        {
+          "text": "True",
+          "isCorrect": false,
+          "rationale": "The risk of directional control issues and slush spray damage means LSA prohibits operations on contaminated runways."
+        },
+        {
+          "text": "False",
+          "isCorrect": true,
+          "rationale": "LSA orders state that the runway must be completely cleared of snow, slush, or ice over the entire length of the calculated take-off distance required."
+        }
+      ],
+      "hint": "Check the section on known icing and runway contamination."
+    },
+    {
+      "question": "In the Cherokee 140, what is the weight and balance restriction for operating in the 'Utility Category'?",
+      "answerOptions": [
+        {
+          "text": "Maximum 4 passengers and half fuel",
+          "isCorrect": false,
+          "rationale": "The utility category has stricter weight limits that do not allow for full passenger loading."
+        },
+        {
+          "text": "No passengers or baggage can be carried and fuel must be at or below the tabs.",
+          "isCorrect": true,
+          "rationale": "To maintain the center of gravity and weight within utility limits for maneuvers, the aircraft must be lightly loaded."
+        },
+        {
+          "text": "Full fuel is allowed if the rear seats are removed.",
+          "isCorrect": false,
+          "rationale": "Removing seats does not change the core limitation that fuel must be reduced to meet utility category specifications."
+        },
+        {
+          "text": "The Cherokee 140 is not approved for the Utility Category.",
+          "isCorrect": false,
+          "rationale": "The aircraft is approved for utility maneuvers, but only under very specific loading conditions."
+        }
+      ],
+      "hint": "Think of the most restrictive load possible: no extra people and limited fuel."
+    },
+    {
+      "question": "What is the LSA policy regarding life preservers when flying over the sea?",
+      "answerOptions": [
+        {
+          "text": "They must be carried in the aircraft but wearing them is optional.",
+          "isCorrect": false,
+          "rationale": "Carrying them is insufficient because they are nearly impossible to put on in a sinking cabin."
+        },
+        {
+          "text": "They must be worn by all occupants for the duration of the flight if beyond gliding range from land.",
+          "isCorrect": true,
+          "rationale": "Wearing the preserver ensures that if a ditching occurs, occupants have immediate buoyancy upon exiting the aircraft."
+        },
+        {
+          "text": "They are only required for international flights.",
+          "isCorrect": false,
+          "rationale": "The hazard of the sea exists regardless of whether a border is crossed; gliding range is the determining factor."
+        },
+        {
+          "text": "They are only required if the water temperature is below $15^{\\circ} C$.",
+          "isCorrect": false,
+          "rationale": "The risk of drowning is the primary concern, making the safety equipment mandatory regardless of water temperature."
+        }
+      ],
+      "hint": "If the engine fails and you can't reach the shore, you need to be prepared to exit the plane."
+    },
+    {
+      "question": "What is the minimum amount of time that must pass after consuming alcohol before a pilot may operate an LSA aircraft?",
+      "answerOptions": [
+        {
+          "text": "4 hours",
+          "isCorrect": false,
+          "rationale": "Four hours is insufficient to ensure that the physiological effects of alcohol have completely dissipated."
+        },
+        {
+          "text": "8 hours",
+          "isCorrect": true,
+          "rationale": "The 'bottle to throttle' rule of 8 hours is the minimum mandatory period defined in the Flying Order Book."
+        },
+        {
+          "text": "12 hours",
+          "isCorrect": false,
+          "rationale": "While 12 hours is a common recommendation, the specific minimum mandated by the LSA orders is 8 hours."
+        },
+        {
+          "text": "24 hours",
+          "isCorrect": false,
+          "rationale": "While conservative, this exceeds the specific minimum requirement listed in the General Flying Orders."
+        }
+      ],
+      "hint": "This is a standard aviation rule of thumb often referred to as 'bottle to throttle'."
+    },
+    {
+      "question": "According to General Flying Order 2.10, when must a pilot inform the CAA about an illness?",
+      "answerOptions": [
+        {
+          "text": "Any time they feel unfit to fly for a single day.",
+          "isCorrect": false,
+          "rationale": "Minor, short-term illnesses do not require formal notification to the Authority."
+        },
+        {
+          "text": "If an illness prevents them from acting as flight crew for 20 days or more.",
+          "isCorrect": true,
+          "rationale": "This threshold indicates a significant medical condition that may require a reassessment of the pilot's fitness."
+        },
+        {
+          "text": "Only if the illness requires hospitalization.",
+          "isCorrect": false,
+          "rationale": "The duration of the inability to fly, rather than the location of treatment, is the primary trigger for notification."
+        },
+        {
+          "text": "Only when they go to renew their medical.",
+          "isCorrect": false,
+          "rationale": "Significant illnesses must be reported promptly to suspend the medical certificate, not just at the next renewal."
+        }
+      ],
+      "hint": "There is a specific number of days that triggers the reporting requirement."
+    },
+    {
+      "question": "What equipment is a commander mandatory required to carry for night flying at Oxford?",
+      "answerOptions": [
+        {
+          "text": "A handheld aviation radio",
+          "isCorrect": false,
+          "rationale": "While useful, a handheld radio is not listed as a mandatory personal item in the night flying orders."
+        },
+        {
+          "text": "A serviceable torch",
+          "isCorrect": true,
+          "rationale": "The poor internal lighting of the PA28 makes a torch essential for reading charts, checking instruments, and post-flight safety."
+        },
+        {
+          "text": "A night-vision headset",
+          "isCorrect": false,
+          "rationale": "Night-vision equipment is not standard for general aviation night flying under these orders."
+        },
+        {
+          "text": "High-visibility clothing",
+          "isCorrect": false,
+          "rationale": "While high-vis is recommended on the ramp, the specific item mandated for the commander in the FOB is a torch."
+        }
+      ],
+      "hint": "You need a way to see the cockpit and your surroundings if the internal lights fail or are insufficient."
+    },
+    {
+      "question": "Under the 'Just Culture' policy, which of the following is NOT protected from disciplinary action?",
+      "answerOptions": [
+        {
+          "text": "An honest error of judgement reported promptly",
+          "isCorrect": false,
+          "rationale": "Just Culture is specifically designed to protect pilots who report honest mistakes to improve safety."
+        },
+        {
+          "text": "Wilful violations of the Rules of the Air",
+          "isCorrect": true,
+          "rationale": "Deliberate rule-breaking and reckless behavior are never protected by Just Culture, as they represent a failure of professional intent."
+        },
+        {
+          "text": "An unintended deviation from a procedure",
+          "isCorrect": false,
+          "rationale": "Unintentional deviations are considered learning opportunities under the club's safety policy."
+        },
+        {
+          "text": "A near-miss incident that resulted in no damage",
+          "isCorrect": false,
+          "rationale": "Reporting near-misses is encouraged so the club can learn how to prevent future accidents."
+        }
+      ],
+      "hint": "Just Culture distinguishes between honest mistakes and intentional, reckless acts."
+    },
+    {
+      "question": "What engine RPM should be used for idling to prevent spark plug fouling?",
+      "answerOptions": [
+        {
+          "text": "700 RPM",
+          "isCorrect": false,
+          "rationale": "Too low an RPM allows the fuel-air mixture to be too rich, leading to carbon deposits on the plugs."
+        },
+        {
+          "text": "1000 RPM",
+          "isCorrect": false,
+          "rationale": "While standard for some planes, LSA specifically recommends a slightly higher setting for better engine health."
+        },
+        {
+          "text": "1200 RPM",
+          "isCorrect": true,
+          "rationale": "Maintaining 1200 RPM ensures cleaner combustion and prevents the fouling of spark plugs during ground operations."
+        },
+        {
+          "text": "1500 RPM",
+          "isCorrect": false,
+          "rationale": "1500 RPM is unnecessarily high for idling and can lead to excessive wear or overheating on the ground."
+        }
+      ],
+      "hint": "It is a specific figure higher than a standard automotive idle speed."
+    },
+    {
+      "question": "For a student pilot to be presented for their first solo circuit, which of the following maneuvers must they be proficient in?",
+      "answerOptions": [
+        {
+          "text": "Cross-country navigation",
+          "isCorrect": false,
+          "rationale": "Navigation is a secondary stage; the first solo focuses entirely on the takeoff and landing circuit."
+        },
+        {
+          "text": "Flapless and Glide approaches",
+          "isCorrect": true,
+          "rationale": "A student must be able to land the aircraft safely even if the flaps fail or the engine loses power."
+        },
+        {
+          "text": "Instrument flying and VDF fixes",
+          "isCorrect": false,
+          "rationale": "These skills are required for solo navigation, but not for the initial solo circuit flight."
+        },
+        {
+          "text": "Spin recovery",
+          "isCorrect": false,
+          "rationale": "Intentional spinning is prohibited in club aircraft; proficiency is required in stall awareness instead."
+        }
+      ],
+      "hint": "The student must be able to handle basic mechanical failures related to the landing configuration."
+    },
+    {
+      "question": "What is the club's policy regarding 'booking' aircraft slots 'just in case'?",
+      "answerOptions": [
+        {
+          "text": "It is encouraged to ensure availability.",
+          "isCorrect": false,
+          "rationale": "This behavior blocks other members from flying and is considered poor etiquette."
+        },
+        {
+          "text": "It is not acceptable and may result in a charge.",
+          "isCorrect": true,
+          "rationale": "LSA requires pilots to be considerate; 'just in case' bookings that are cancelled without good reason lead to wasted resources."
+        },
+        {
+          "text": "It is allowed if the pilot pays a small premium fee.",
+          "isCorrect": false,
+          "rationale": "The club manages slots based on actual need rather than a pay-to-hold system."
+        },
+        {
+          "text": "Slots can only be cancelled with 48 hours' notice.",
+          "isCorrect": false,
+          "rationale": "While notice is required, the primary rule is that the *reason* for cancellation must be legitimate (e.g., weather)."
+        }
+      ],
+      "hint": "Think about the impact on other members and the club's revenue when a slot goes unused."
+    },
+    {
+      "question": "What is the minimum oil level requirement for a PA28 before flight?",
+      "answerOptions": [
+        {
+          "text": "4 Quarts",
+          "isCorrect": false,
+          "rationale": "4 quarts is below the safe minimum specified in the aircraft considerations section."
+        },
+        {
+          "text": "5 Quarts",
+          "isCorrect": true,
+          "rationale": "The FOB specifies 5 quarts as the minimum level, below which an instructor should be consulted before replenishment."
+        },
+        {
+          "text": "6 Quarts",
+          "isCorrect": false,
+          "rationale": "While 6 quarts is often the desired level, the absolute minimum for starting a flight is 5."
+        },
+        {
+          "text": "8 Quarts",
+          "isCorrect": false,
+          "rationale": "8 quarts is typically the maximum capacity, not the minimum required for flight."
+        }
+      ],
+      "hint": "It is a specific number of quarts mentioned in section 8.4."
+    },
+    {
+      "question": "If a pilot believes they have inadvertently strayed into a Prohibited or Danger area, what is the immediate required action?",
+      "answerOptions": [
+        {
+          "text": "Land immediately in the nearest field.",
+          "isCorrect": false,
+          "rationale": "An off-field landing is an emergency procedure and unnecessary for an airspace infringement unless instructed."
+        },
+        {
+          "text": "Report the fact to ATC immediately.",
+          "isCorrect": true,
+          "rationale": "Immediate reporting allows ATC to coordinate and ensure safety of other traffic and sensitive ground activities."
+        },
+        {
+          "text": "Turn off the transponder and exit the area quickly.",
+          "isCorrect": false,
+          "rationale": "Turning off the transponder makes the aircraft 'invisible' to radar, which increases the danger to others."
+        },
+        {
+          "text": "Only report it if they are contacted by radio.",
+          "isCorrect": false,
+          "rationale": "The pilot has a proactive duty to report safety violations as soon as they are recognized."
+        }
+      ],
+      "hint": "Transparency with the controlling authority is the highest priority in airspace incidents."
+    }
+  ],
+  "topics": {
+    "covered": [
+      "Club Authorization and Membership",
+      "Aircraft Technical Procedures",
+      "Student and PPL Solo Requirements",
+      "Weather Minima and Wind Limits",
+      "Flight Maneuvering and Safety Altitudes",
+      "Passenger and Night Currency",
+      "Emergency and Safety Reporting Culture"
+    ],
+    "followUp": [
+      "Air Navigation Order (ANO) and SERA compliance",
+      "PA28 Aircraft Performance Calculations",
+      "Cross-Channel Flight Planning",
+      "Theoretical Knowledge Ground Exams"
+    ]
+  }
+}
